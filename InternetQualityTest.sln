@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternetQualityTestClient", "InternetQualityTestClient\InternetQualityTestClient.csproj", "{87BE2366-0082-4C71-A053-00EF4CA1FFFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternetQualityTestServer", "InternetQualityTestServer\InternetQualityTestServer.csproj", "{02C35B0A-D82E-47CB-8D2A-689783F159A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87BE2366-0082-4C71-A053-00EF4CA1FFFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87BE2366-0082-4C71-A053-00EF4CA1FFFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87BE2366-0082-4C71-A053-00EF4CA1FFFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87BE2366-0082-4C71-A053-00EF4CA1FFFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02C35B0A-D82E-47CB-8D2A-689783F159A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02C35B0A-D82E-47CB-8D2A-689783F159A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02C35B0A-D82E-47CB-8D2A-689783F159A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02C35B0A-D82E-47CB-8D2A-689783F159A8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
