@@ -8,6 +8,7 @@ namespace InternetQualityTest
     public class QualityTest
     {
         private readonly AppSettings settings;
+        private readonly HttpClient httpClient;
 
         public int PingsSentTotal { get; private set; } = 0;
 
@@ -19,14 +20,13 @@ namespace InternetQualityTest
 
         public QualityTest()
         {
-            this.settings = GetAppSettings();            
+            this.settings = GetAppSettings();
+            this.httpClient = new HttpClient();
+            this.httpClient.Timeout = TimeSpan.FromMilliseconds(this.settings.TimeOut);
         }
 
         public async Task StartTest(TimeSpan duration)
         {
-            var httpClient = new HttpClient();
-            httpClient.Timeout = TimeSpan.FromMilliseconds(this.settings.TimeOut);
-
             Stopwatch totalWatch = new Stopwatch();
             Stopwatch currentWatch = new Stopwatch();
             totalWatch.Start();            
@@ -51,7 +51,7 @@ namespace InternetQualityTest
 
                 try 
                 { 
-                    response = await httpClient.GetAsync(this.settings.RequestUrl); 
+                    response = await this.httpClient.GetAsync(this.settings.RequestUrl); 
                 } 
                 catch { }
 
@@ -93,6 +93,15 @@ namespace InternetQualityTest
 
             totalWatch.Stop();
             currentWatch.Stop();
+        }
+
+        public async Task ServerWarmUp()
+        {
+            try
+            {
+                _ = await this.httpClient.GetAsync(this.settings.RequestUrl);
+            }
+            catch { }
         }
 
         private static AppSettings GetAppSettings()

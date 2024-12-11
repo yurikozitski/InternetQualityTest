@@ -39,6 +39,14 @@ while (true)
         }
     }
 
+    var test = new QualityTest();
+
+    Console.Clear();
+    Console.WriteLine(greeting);
+    Console.WriteLine("Your test is being prepared...");
+
+    await test.ServerWarmUp();
+
     Console.Clear(); 
     Console.WriteLine(greeting);
     Console.WriteLine("Running the test...");
@@ -49,7 +57,6 @@ while (true)
     Console.WriteLine("Max timeout: ");
     Console.WriteLine("Total timeout: ");
 
-    var test = new QualityTest();
     await test.StartTest(TimeSpan.FromMinutes(duration));
 
     double result = default;
