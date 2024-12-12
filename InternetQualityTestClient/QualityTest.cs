@@ -97,11 +97,14 @@ namespace InternetQualityTest
 
         public async Task ServerWarmUp()
         {
-            try
+            for (int i = 1; i <= 3; i++)
             {
-                _ = await this.httpClient.GetAsync(this.settings.RequestUrl);
+                try
+                {
+                    _ = await this.httpClient.GetAsync(this.settings.RequestUrl);
+                }
+                catch { }
             }
-            catch { }
         }
 
         private static AppSettings GetAppSettings()
