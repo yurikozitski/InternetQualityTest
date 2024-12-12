@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Globalization;
 using System.Text.Json;
 
 #pragma warning disable S2486 // Generic exceptions should not be ignored
@@ -84,9 +85,9 @@ namespace InternetQualityTest
                 Console.SetCursorPosition(8, successCursorTop);
                 Console.Write(this.PingsSentSuccessfully.ToString().PadRight(10));
                 Console.SetCursorPosition(12, maxTimeoutCursorTop);
-                Console.Write($"{this.MaxConnectionTimeOut.ToString("s\\.f")}s".PadRight(10));
+                Console.Write($"{this.MaxConnectionTimeOut.TotalSeconds.ToString("F1", CultureInfo.InvariantCulture)}s".PadRight(10));
                 Console.SetCursorPosition(14, totalTimeoutCursorTop);
-                Console.Write($"{this.TotalConnectionTimeOut.ToString("s\\.f")}s".PadRight(10));
+                Console.Write($"{this.TotalConnectionTimeOut.TotalSeconds.ToString("F1", CultureInfo.InvariantCulture)}s".PadRight(10));
 
                 await Task.Delay(this.settings.Interval);                
             }

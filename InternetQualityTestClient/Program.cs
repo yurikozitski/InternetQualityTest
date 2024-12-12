@@ -71,10 +71,11 @@ while (true)
 
     Console.Clear();
     Console.WriteLine(greeting);
+    Console.WriteLine($"Total duration: {duration}m");
     Console.WriteLine($"Total pings sent:{test.PingsSentTotal}");
     Console.WriteLine($"Successfull pings:{test.PingsSentSuccessfully}");
-    Console.WriteLine($"Maximum timeout:{test.MaxConnectionTimeOut.ToString("s\\.f")}s");
-    Console.WriteLine($"Total timeout:{test.TotalConnectionTimeOut.ToString("s\\.f")}s");
+    Console.WriteLine($"Maximum timeout:{test.MaxConnectionTimeOut.TotalSeconds.ToString("F1", CultureInfo.InvariantCulture)}s");
+    Console.WriteLine($"Total timeout:{test.MaxConnectionTimeOut.TotalSeconds.ToString("F1", CultureInfo.InvariantCulture)}s");
     Console.WriteLine($"Your test is done, result: {percentageResult.ToString("F2", CultureInfo.InvariantCulture)}% of pings received");
     Console.WriteLine();
     Console.WriteLine("Do you want to perform one more test? (Y/N)");
